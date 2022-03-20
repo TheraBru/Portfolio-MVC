@@ -1,0 +1,22 @@
+﻿@model IEnumerable<netProject.Models.Framework>
+
+@{
+    ViewData["Title"] = "Ramverk";
+}
+
+<h1>Ramverk</h1>
+
+<p>
+    <a asp-action="Create">Lägg till nytt ramverk</a>
+</p>
+<section class="accountDiv">
+    <h2>Alla tillagda ramverk</h2>
+    @foreach (var framework in Model){
+        <article>
+            <h3 class="alignLeft">@framework.frameworkTitle</h3>
+            <p><span class="description">Språk: </span>@framework.language.languageTitle</p>
+             <a asp-action="Edit" asp-route-id="@framework.frameworkId">Redigera</a> |
+            <a asp-action="Delete" asp-route-id="@framework.frameworkId">Ta bort</a>
+        </article>
+    }
+</section>

@@ -1,0 +1,799 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Philosopher:wght@700&family=Poiret+One&display=swap");
+/*code for all pages*/
+html,
+body,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/*code for text elements*/
+p {
+    font-family: "Montserrat", sans-serif;
+    max-width: 40em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #01756f;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-family: "Philosopher", cursive;
+    font-size: 4em;
+}
+
+h2 {
+    font-family: "Poiret One", cursive;
+    letter-spacing: 0.18em;
+    font-size: 2em;
+}
+
+h3 {
+    font-family: "Poiret One", cursive;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1d9d8f;
+}
+a {
+    text-decoration: none;
+    color: #671c2c;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+ul[title]::before {
+    content: attr(title);
+    display: block;
+    font-weight: 700;
+}
+
+ul li {
+    padding: 0 20px;
+    margin: 0;
+}
+
+/*Log in/log out*/
+.loginDiv .loginPartial a, .loginDiv .loginPartial form button {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #01756f;
+    font-size: 14px;
+}
+
+
+#logoutBtn {
+    border: none;
+    background-color: transparent;
+    color: #003c39;
+    cursor: pointer;
+}
+
+    #logoutBtn:hover {
+        color: #892e42;
+    }
+
+/*code for bigger elements*/
+
+section{
+   padding-bottom:10vh;
+}
+
+body {
+    background-color: #e1fffa;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*code for forms*/
+
+textarea {
+    resize: none;
+    width: 30vw;
+    height: 300px;
+    display: block;
+}
+
+.smallTxt {
+    height: 50px;
+}
+
+input[type="submit"], .formBtn {
+    background-color: #38d3c3;
+    border: solid #0e5b53 2px;
+    color: #053531;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    padding: 5px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+input[type="submit"]:hover, .formBtn:hover {
+    background-color: #1a7a70;
+    border: solid #38d3c3 2px;
+    color: #38d3c3;
+}
+
+label {
+    font-weight: 600;
+    color: #0e5b53;
+}
+
+input {
+    width: 50%;
+    margin-bottom: 0;
+}
+
+form {
+    margin-top: 20px;
+    width: 40vw;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+.required {
+    display: inline;
+    color: #d8131f;
+}
+
+.errorMsg {
+    color: #d8131f;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.field-validation-error:before {
+    font-family: FontAwesome;
+    content: "\f071\00a0";
+}
+
+select {
+    display: block;
+    font-size: 16px;
+}
+
+input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/*code for start page*/
+
+.startNav {
+    width: fit-content;
+    height: 300px;
+    margin: 0 auto;
+    padding: 100px;
+    margin-top: 10vh;
+    border: double #38d3c3 10px;
+}
+/*code for logos*/
+.logo img {
+    max-width: 200px;
+    transition: 0.5s;
+}
+
+.logo:hover img,
+.logo:focus img {
+    filter: hue-rotate(180deg) saturate(1) brightness(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.menuBtn {
+    text-decoration: none;
+    color: transparent;
+}
+
+.menuBtn h3 {
+    display: none;
+    color: transparent;
+    transition: 0.5s;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    margin: 0;
+}
+
+.menuBtn:hover h3 {
+    color: #d3768a;
+    transition: 1s;
+    display: block;
+}
+
+.editContent {
+    margin-top: 20px;
+}
+
+/* Code for content pages of the site */
+
+/*Navigation*/
+#pagesHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+#pagesHeader a {
+    text-decoration: none;
+    color: #01756f;
+}
+
+#pagesHeader div p {
+    text-align: left;
+    margin: 0;
+    font-size: 2.5rem;
+    font-family: "Philosopher", cursive;
+}
+
+#pagesHeader div p:nth-of-type(2) {
+    font-size: 1.5em;
+    font-family: 'Poiret One', cursive;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+}
+
+#pagesHeader nav {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#pagesHeader nav ul li {
+    font-size: 1.5em;
+}
+
+#pagesHeader nav ul li a:hover {
+    color:#38d3c3;
+}
+
+/*classes*/
+
+.flexBox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 50px;
+    column-gap:10px;
+}
+
+.flexBox ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.flexColumn p {
+    max-width: 15em;
+}
+
+.flexColumn img {
+    height: 100px;
+}
+
+
+.webDiv img {
+    max-width: 300px;
+    height: 100%;
+}
+
+.description {
+    font-weight: 700;
+}
+
+
+.flexContainer ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    list-style: disc;
+    padding-bottom: 10px;
+    font-size: 18px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+#eduContainer {
+    margin-bottom: 110px;
+}
+
+.blueBgLinks:hover {
+    color: #ffd4ef;
+}
+
+.formCheck {
+    width: fit-content;
+}
+
+.accountDiv {
+    margin-bottom: 400px;
+}
+
+.alignLeft {
+    text-align: left;
+}
+
+
+/*About page*/
+#webDevSection {
+    padding: 20px;
+    z-index: -1;
+    margin: 100px;
+}
+
+#me {
+    height: 400px;
+    margin-left: 20vw;
+}
+
+#aboutDiv {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-image: linear-gradient(40deg, #ffd4ef 30%, #62eee0 30.2%);
+}
+
+#aboutSection {
+    justify-content: space-around;
+}
+
+#pictureDiv {
+    height: 400px;
+}
+
+#introduction {
+    margin-right: 100px;
+}
+
+#introduction h2 {
+    text-align: left;
+    color: #04403d;
+}
+
+#introduction p {
+    max-width: 40em;
+}
+
+/*section with frameworks and languages*/
+.knowledgeDiv div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.knowledgeDiv div i {
+    font-size: 36px;
+    color: #01756f;
+}
+
+
+/*section with education*/
+#hobbyBox {
+    background-color: #38d3c3;
+    width: 100%;
+    margin-top: 150px;
+}
+
+#hobbyBox div {
+    display: flex;
+    gap: 40px;
+}
+
+#hobbyBox h2, #hobbyBox h3 {
+    color: #04403d;
+}
+
+
+/*Portfolio*/
+.portfolioLink {
+    width: 22vw;
+    height: 22vw;
+    display: grid;
+    grid-template-rows: 1fr 60%;
+    background-image: linear-gradient(rgba(160, 245, 234, 0.404) 1%, rgba(111, 255, 236, 0.863) 70%);
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid #38d3c3 2px;
+}
+
+.portfolioLink p {
+    font-weight: 600;
+    color: #024643;
+    font-size:16px;
+}
+
+.portfolioLink h2 {
+    text-align: left;
+    align-self: end;
+    height: fit-content;
+    color: #024643;
+    word-wrap: break-word;
+    max-width:18vw;
+    font-size: 2.5vw;
+    margin:0;
+}
+
+.portfolioLink:hover {
+    background-image: linear-gradient(rgba(0, 255, 255, 0.048), rgba(0, 247, 255, 0.274));
+    border: solid #38d3c3 5px;
+    align-items: center;
+}
+
+.portfolioLink:hover p, .portfolioLink:hover h3 {
+    color: rgba(0, 0, 0, 0);
+}
+
+.floatingImg {
+    position: relative;
+    top: -49.7%;
+    width: 22vw;
+    height: 22vw;
+    z-index: -1;
+    box-sizing: border-box;
+}
+
+.fit-content div, .fit-content nav {
+    height: fit-content;
+}
+
+/*code for contact page*/
+
+#contactSection h2 {
+    text-align: left;
+}
+
+#contactSection form {
+    width: 40em;
+}
+
+#contactSection .flexColumn {
+    gap: 10px;
+}
+/*code for edit page*/
+
+.foldingBtn, .foldingText {
+    width: 38vw;
+    box-sizing: border-box;
+}
+
+.foldingText {
+    display: none;
+    background-color: #fff1fa;
+    border: solid #822b3e 2px;
+    border-top: none;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.foldingText h3, .foldingText h4 {
+    text-align: left;
+}
+
+.foldingText h4 {
+    font-size: 20px;
+    font-family: 'Poiret One', cursive;
+}
+
+.foldingText p {
+    font-size: 18px;
+}
+
+
+.foldingBtn {
+    background-color: #ffd4ef;
+    display: flex;
+    justify-content: space-between;
+    width: 38vw;
+    border: solid #822b3e 2px;
+    color: #822b3e;
+    font-weight: 700;
+    padding: 0 20px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.foldingBtn i {
+    font-size: 34px;
+    margin-top: 15px;
+}
+
+/*code for admin page*/
+
+.nav-pills li a {
+    color: #0e5b53;
+}
+
+a:hover, .nav-pills li a:hover {
+    color: #38d3c3;
+}
+
+.webDiv img {
+    max-width: 300px;
+    height: 100%;
+}
+
+.description {
+    font-weight: 700;
+}
+
+/*code for footer*/
+footer {
+    height: 70px;
+    background-color: #38d3c3;
+}
+
+footer .loginPartial {
+    position: absolute;
+    right: 50px
+}
+
+footer a:hover {
+    color: #ffd4ef;
+}
+
+
+/*Media querie for screens under 1000px width*/
+@media screen and (max-width:1000px){
+
+    .startNav{
+        padding:50px;
+        width:80vw;
+    }
+
+    .logo img{
+        min-width: 10px;
+    }
+
+    .portfolioLink, .floatingImg{
+        width: 30vw;
+        height: 30vw;
+    }
+
+    ul li{
+        padding: 0 10px;
+    }
+    form{
+        width:80vw;
+    }
+
+    textarea{
+       width: 60vw;
+    }
+
+    .foldingBtn, .foldingText {
+        width: 50vw;
+    }
+
+}
+
+/*Media querie for screens under 800px width*/
+@media all and (max-width: 800px){
+   .startNav ul{
+       flex-direction:column;
+       align-items: center;
+       gap:50px;
+   }
+
+   .startNav{
+       height:fit-content;
+       width: 80vw;
+       box-sizing:border-box;
+   }
+
+   #pagesHeader{
+       flex-direction:column;
+       gap: 20px;
+   }
+
+   #introduction{
+       margin-right:10px;
+       margin-left:10px;
+   }
+
+    .portfolioLink{
+        width: 80vw;
+        padding-left:25vw;
+        text-align:right;
+    }
+    .portfolioLink h2{
+        max-width: 80vw;
+        text-align:right;
+    }
+    .floatingImg {
+        width: 20vw;
+        height: 20vw;
+        z-index:1;
+        left: 10px;
+    }
+
+    form{
+        margin:20px;
+    }
+
+    .foldingBtn, .foldingText {
+        width: 80vw;
+    }
+
+    .accountDiv{
+        margin:20px;
+    }
+}
+
+/*Media querie for screens under 600px width*/
+@media all and (max-width: 600px) {
+
+    nav ul{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .loginPartial form{
+        width:fit-content;
+    }
+
+    #pagesHeader div p{
+        text-align:center;
+    }
+
+    .portfolioLink {
+        height: fit-content;
+    }
+    .portfolioLink h2{
+        max-width: 50vw;
+    }
+     .portfolioLink p{
+        max-width:50vw;
+        word-break:break-word;
+    }
+
+    .nav-pills{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+}
+
+/*Media querie for screens under 400px width*/
+@media all and (max-width: 400px) {
+
+    /*text elements*/
+    h1{
+        font-size:12vw;
+        margin-top:30px;
+    }
+    h2{
+        font-size: 10vw;
+    }
+
+    h3, h4{
+        word-break:break-word;
+    }
+
+    /*log in/log out*/
+    #logoutBtn{
+        top:5px;
+        right:5px
+    }
+    #loginBtn {
+        top: 5px;
+        right: 5px
+    }
+
+    /*Start page*/
+    .startNav {
+        width: 92vw;
+        box-sizing: border-box;
+    }
+    #pagesHeader{
+        padding: 0;
+    }
+
+    /*About page*/
+    #me{
+        height:50vh;
+        max-height:300px;
+        margin:0;
+    }
+    #pictureDiv{
+        height:fit-content;
+        width: fit-content;
+    }
+
+    .flexBox{
+        gap: 10px;
+    }
+
+    #hobbyBox{
+        padding:10px;
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    #hobbyBox h3{
+        word-wrap:break-word;
+        width:90vw;
+    }
+
+    /*Forms*/
+    input, textarea{
+        width:85vw;
+    }
+
+    form {
+        margin: 5px;
+    }
+
+    /*Edit page*/
+    .foldingBtn, .foldingText {
+        width: 90vw;
+    }
+
+    .foldingText h3{
+        word-wrap:break-word;
+    }
+
+    .webDiv img {
+       width: 80vw;
+    }
+
+    /*Portfolio page*/
+     .portfolioLink{
+        width: 90vw;
+        padding-bottom: 50vw;
+        padding-left:5px;
+        text-align:left;
+    }
+
+    .portfolioLink h2{
+        text-align:center;
+        max-width:90vw;
+    }
+     .portfolioLink p{
+        max-width:90vw;
+    }
+
+    .floatingImg {
+        width: 40vw;
+        height: 40vw;
+        z-index:1;
+        left: 25%;
+        top:-110px;
+    }
+}

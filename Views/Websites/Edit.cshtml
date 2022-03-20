@@ -1,0 +1,57 @@
+﻿@model netProject.Models.Website
+
+@{
+    ViewData["Title"] = "Redigera hemsida";
+}
+
+<h1>Redigera hemsida</h1>
+
+<section>
+<h2>@Model.websiteTitle</h2>
+<div>
+    <div>
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <input type="hidden" asp-for="websiteId" />
+            <div>
+                <label asp-for="websiteTitle"></label>
+                <input asp-for="websiteTitle"/>
+                <span asp-validation-for="websiteTitle" class="errorMsg"></span>
+            </div>
+            <div >
+                <label asp-for="websiteDescription"></label>
+                <textarea class="smallTxt" asp-for="websiteDescription"></textarea>
+                <span asp-validation-for="websiteDescription" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="websiteUrl" ></label>
+                <input asp-for="websiteUrl"/>
+                <span asp-validation-for="websiteUrl" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="pictureFile"></label>
+                <input asp-for="pictureFile"/>
+                <span asp-validation-for="pictureFile" class="errorMsg"></span>
+            </div>
+            <div>
+                <input type="submit" value="Spara ändringar" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-controller="websiteLanguages" asp-action="Index">Hantera språk</a> | 
+    <a asp-controller="websiteFrameworks" asp-action="Index">Hantera ramverk</a>
+</div>
+
+<div class="alignLeft accountDiv">
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+</section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

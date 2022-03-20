@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Portfolio";
+}
+
+
+<div >
+    <h1>Portfolio</h1>
+</div>
+<section>
+    <div class="flexBox">
+    <ul>
+        @foreach (var website in ViewBag.Websites){
+            
+                <li>
+                    <a href="@website.websiteUrl" target="blank">
+                    <div class="backgroundImage">
+                        <article class="portfolioLink blackBox">
+                            <h2>@website.websiteTitle</h2>
+                            <p>@website.websiteDescription</p>
+                        </article>
+                    </div>
+                </a> 
+                <img class="floatingImg" src="~/images/@website.websitePicture" alt="" />
+            </li>
+        }
+    </ul>
+    </div>
+
+</section>

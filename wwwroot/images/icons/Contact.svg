@@ -1,0 +1,28 @@
+<svg width="816" height="816" viewBox="0 0 816 816" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Contact">
+<rect id="Background" x="4.46447" y="408.222" width="571" height="571" transform="rotate(-45 4.46447 408.222)" fill="url(#paint0_linear)" stroke="black" stroke-width="5"/>
+<g id="Letter">
+<rect id="Rectangle 1" x="108.654" y="336.868" width="339.556" height="226.633" transform="rotate(-21.8273 108.654 336.868)" fill="white" stroke="black" stroke-width="7"/>
+<path id="Polygon 1" d="M115.164 343.503L316.615 398.179L423.431 220.024C425.648 216.327 421.9 211.93 417.899 213.532L114.67 334.983C110.661 336.588 110.996 342.372 115.164 343.503Z" fill="#C8C8C8" stroke="black" stroke-width="7"/>
+</g>
+<g id="cellphone">
+<rect id="Rectangle 2" x="471.855" y="239.449" width="189.054" height="333.845" rx="15" transform="rotate(15 471.855 239.449)" fill="#FFD7E0" stroke="black" stroke-width="4"/>
+<rect id="Rectangle 3" x="479.057" y="253.188" width="167.135" height="274.387" transform="rotate(15 479.057 253.188)" fill="url(#paint1_linear)"/>
+<circle id="Ellipse 2" cx="482.946" cy="563.28" r="17.1629" transform="rotate(15 482.946 563.28)" fill="#FFEA7E" stroke="black" stroke-width="5"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="573.843" y1="408.065" x2="8.15729" y2="973.751" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2CF7C6"/>
+<stop offset="0.505208" stop-color="#30F6CE"/>
+<stop offset="1" stop-color="#44FEF3"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="479.057" y1="257.657" x2="639.847" y2="378.02" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="0.4999" stop-color="#090B0A"/>
+<stop offset="0.572917" stop-color="#1D1D1D"/>
+<stop offset="0.630208" stop-color="#020303"/>
+<stop offset="1"/>
+</linearGradient>
+</defs>
+</svg>

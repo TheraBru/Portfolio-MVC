@@ -1,0 +1,22 @@
+﻿@model netProject.Models.Programs
+
+@{
+    ViewData["Title"] = "Ta bort utbildning";
+}
+
+<h1>Ta bort utbildning</h1>
+
+<section class="accountDiv">
+    <h2>Är du säker på att du vill ta bort @Model.programsTitle?</h2>
+    <p><span class="description">Utbildning: </span>@Model.programsTitle</p>
+    <p><span class="description">Skola: </span>@Model.programsSchool</p>
+    <p><span class="description">Examenstyp: </span>@Model.programsDegree</p>
+    <p><span class="description">Startdatum: </span>@Model.programsStartdate.ToString("dd MMMM yyyy")</p>
+    <p><span class="description">Slutdatum: </span>@Model.programsEnddate.ToString("dd MMMM yyyy")</p>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="programsId" />
+        <input type="submit" value="Ta bort utbildning"/> 
+        <a asp-action="Index">Tillbaka till översikt</a>
+    </form>
+</section>

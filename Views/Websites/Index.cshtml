@@ -1,0 +1,53 @@
+﻿@model IEnumerable<netProject.Models.Website>
+
+@{
+    ViewData["Title"] = "Webbplatser";
+}
+
+
+
+    <h1>Webbplatser</h1>
+
+<p>
+    <a asp-action="Create">Skapa ny webbplats</a>
+</p>
+
+<section class="accountDiv webDiv">
+    <h2>Alla tillagda webbplatser</h2>
+    @foreach (var website in Model){
+        <article>
+            <h3 class="alignLeft">@website.websiteTitle</h3>
+            <p><span class="description">Beskrivning: </span>@website.websiteDescription</p>
+            @if(website.websiteLanguages != null)
+            {
+                <div class="block">
+                    <ul title="Språk" class="list">
+                    @foreach(var websiteLanguage in website.websiteLanguages)
+                    {
+                        <li>@websiteLanguage.language.languageTitle</li>
+                    }
+                    </ul>
+                </div>
+            }
+            @if (website.websiteFrameworks != null)
+            {
+                <div class="block">
+                    <ul title="Ramverk" class="list">
+                    @foreach(var websiteFramework in website.websiteFrameworks)
+                    {
+                        <li>@websiteFramework.framework.frameworkTitle</li>
+                    }
+                    </ul>
+                </div>
+            }
+            
+            <img src="~/images/@website.websitePicture" alt="Skärmdump från @website.websiteTitle">
+            <div class="block">
+                <a asp-action="Edit" asp-route-id="@website.websiteId">Redigera</a> |
+                <a asp-action="Delete" asp-route-id="@website.websiteId">Ta bort</a>
+            </div>
+        </article>
+    }
+</section>
+
+

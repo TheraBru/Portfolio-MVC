@@ -1,0 +1,16 @@
+﻿@model netProject.Models.Programs;
+@{
+    ViewData["Title"] = Model.programsTitle;
+}
+
+ <h1>@Html.DisplayFor(model => model.programsTitle)</h1>
+<section>
+    <h2>Kurser</h2>
+    @foreach (var course in Model.courses)
+    {
+        <article>
+            <h3>@course.courseTitle</h3>
+            <p>@course.courseStartdate.ToString("dd MMMM yyyy") - @course.courseEnddate.ToString("dd MMMM yyyy")</p>
+        </article>    
+    }
+</section>

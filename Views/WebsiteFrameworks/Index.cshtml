@@ -1,0 +1,42 @@
+﻿@model IEnumerable<netProject.Models.WebsiteFramework>
+
+@{
+    ViewData["Title"] = "Webbplatsers ramverk";
+}
+<h1>Webbplatsers ramverk</h1>
+
+<p>
+    <a asp-action="Create">Lägg till nytt ramverk till webbplats</a> |
+    <a asp-controller="Frameworks" asp-action="Index">Ramverk</a>
+</p>
+<section class="accountDiv">
+    <h2>Alla webbplatser</h2>
+    @{
+        //Loop through websites in many to many tabel and save each unique one in a list
+        List<Website> websites = new List<Website>();
+        foreach (var websiteFramework in Model)
+        {
+            if (!websites.Contains(websiteFramework.website))
+            {
+                 websites.Add(websiteFramework.website);
+            }
+        }
+        //Loop through each website in list and write out website title and connected frameworks
+        foreach (var website in websites)
+        {
+            <article>
+            <h3 class="alignLeft">@website.websiteTitle</h3>
+                @foreach(var websiteFramework in website.websiteFrameworks)
+                {
+                    <p>@websiteFramework.framework.frameworkTitle</p>
+                    //Link to endpoint for delete
+                    <a href="WebsiteFrameworks/Delete?websiteId=@websiteFramework.websiteId&frameworkId=@websiteFramework.frameworkId">Ta bort</a>
+                }
+            </article>
+            
+        }
+        
+    }
+
+</section>
+

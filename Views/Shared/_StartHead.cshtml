@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="shortcut icon" type="image/icon" href="~/images/icons/favicon.ico"/>
+</head>
+@*Layout for start page*@
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Therése Bruzell</h1>
+            <h2>Webbutveckling och grafisk design </h2>
+            <nav class="startNav">
+                @RenderBody()
+            </nav>
+        </header>
+    </div>
+    <div class="loginDiv">
+        <partial name="_LoginPartial" />
+    </div>
+    @if (SignInManager.IsSignedIn(User)){
+    <ul>
+        <li class="editContent">
+            <a asp-area="" asp-controller="Home" asp-action="Edit">Hantera innehåll</a>
+        </li>
+    </ul>
+}
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

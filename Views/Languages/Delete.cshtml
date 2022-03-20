@@ -1,0 +1,17 @@
+﻿@model netProject.Models.Language
+
+@{
+    ViewData["Title"] = "Ta bort språk";
+}
+
+<h1>Ta bort språk</h1>
+<section class="accountDiv">
+    <h2>Är du säker på att du vill ta bort @Model.languageTitle?</h2>
+          <p><span class="description">Språk: </span>@Model.languageTitle</p>
+    
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="languageId" />
+            <input type="submit" value="Ta bort språk"/> |
+            <a asp-action="Index">Tillbaka till översikt</a>
+        </form>
+</section>

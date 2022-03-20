@@ -1,0 +1,25 @@
+﻿@model IEnumerable<netProject.Models.Course>
+
+@{
+    ViewData["Title"] = "Kurser";
+}
+
+<h1>Kurser</h1>
+
+<p>
+    <a asp-action="Create">Skapa ny kurs</a>
+</p>
+
+<section class="accountDiv">
+    <h2>Alla tillagda kurser</h2>
+    @foreach (var course in Model){
+        <article>
+            <h3 class="alignLeft">@course.courseTitle</h3>
+            <p><span class="description">Tillhör utbildning: </span><a asp-controller="Programs" asp-action="Details" asp-route-id="@course.programs.programsId">@course.programs.programsTitle</a></p>
+            <p><span class="description">Startdatum: </span>@course.courseStartdate.ToString("dd MMMM yyyy")</p>
+            <p><span class="description">Slutdatum: </span>@course.courseEnddate.ToString("dd MMMM yyyy")</p>
+            <a asp-action="Edit" asp-route-id="@course.courseId">Redigera</a> |
+            <a asp-action="Delete" asp-route-id="@course.courseId">Ta bort</a>
+        </article>
+    }
+</section>

@@ -1,0 +1,27 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Personalig data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<div>
+    <div>
+        <p>Här finns all information som den här webbplatsen lagrat om dig. Du kan här välja att ladda ner eller radera denna information.</p>
+        <p>
+            <strong>Tar du bort denna information kommer ditt konto att upphöra.</strong>
+        </p>
+        <form id="download-data" asp-page="DownloadPersonalData" method="post">
+            <input type="submit" value="Ladda ner">
+        </form>
+        <p>
+            <a id="delete" asp-page="DeletePersonalData" class="errBtn">Radera</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

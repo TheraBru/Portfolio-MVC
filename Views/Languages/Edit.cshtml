@@ -1,0 +1,32 @@
+﻿@model netProject.Models.Language
+
+@{
+    ViewData["Title"] = "Redigera språk";
+}
+
+<h1>Redigera språk</h1>
+
+<section class="accountDiv">
+    <h2>@Model.languageTitle</h2>
+    <div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <input type="hidden" asp-for="languageId" />
+            <div class="form-group">
+                <label asp-for="languageTitle"></label>
+                <input asp-for="languageTitle" />
+                <span asp-validation-for="languageTitle" class="errorMsg"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save"/>
+            </div>
+        </form>
+    </div>
+<div>
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

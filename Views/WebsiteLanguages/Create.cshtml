@@ -1,0 +1,35 @@
+﻿@model netProject.Models.WebsiteLanguage
+
+@{
+    ViewData["Title"] = "Lägg till nytt språk";
+}
+
+<h1>Lägg till nytt språk</h1>
+
+<hr />
+<div>
+    <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <div>
+                <label asp-for="languageId" ></label>
+                <select asp-for="languageId"asp-items="ViewBag.languageId"></select>
+            </div>
+            <div>
+                <label asp-for="websiteId"></label>
+                <select asp-for="websiteId" asp-items="ViewBag.websiteId"></select>
+            </div>
+            <div>
+                <input type="submit" value="Lägg till språk" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="accountDiv">
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

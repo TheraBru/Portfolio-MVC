@@ -1,0 +1,19 @@
+﻿@model netProject.Models.Framework
+
+@{
+    ViewData["Title"] = "Ta bort ramverk";
+}
+
+<h1>Ta bort ramverk</h1>
+
+<section class="accountDiv">
+    <h2>Är du säker på att du vill ta bort @Model.frameworkTitle?</h2>
+    <p><span class="description">Ramverk: </span>@Model.frameworkTitle</p>
+    <p><span class="description">Språk: </span>@Model.language.languageTitle</p>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="frameworkId" />
+        <input type="submit" value="Ta bort ramverk" /> |
+        <a asp-action="Index">Tillbaka till översikt</a>
+    </form>
+</section>

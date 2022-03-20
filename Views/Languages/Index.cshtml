@@ -1,0 +1,21 @@
+﻿@model IEnumerable<netProject.Models.Language>
+
+@{
+    ViewData["Title"] = "Språk";
+}
+
+<h1>Språk</h1>
+
+<p>
+    <a asp-action="Create">Lägg till nytt språk</a>
+</p>
+<section class="accountDiv">
+    <h2>Alla tillagda språk</h2>
+    @foreach (var language in Model){
+        <article>
+            <h3 class="alignLeft">@language.languageTitle</h3>
+             <a asp-action="Edit" asp-route-id="@language.languageId">Redigera</a> |
+            <a asp-action="Delete" asp-route-id="@language.languageId">Ta bort</a>
+        </article>
+    }
+</section>

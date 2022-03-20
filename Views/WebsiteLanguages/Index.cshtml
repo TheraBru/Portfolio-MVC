@@ -1,0 +1,42 @@
+﻿@model IEnumerable<netProject.Models.WebsiteLanguage>
+
+@{
+    ViewData["Title"] = "Webbplatsers språk";
+}
+
+<h1>Webbplatsers språk</h1>
+
+<p>
+    <a asp-action="Create">Lägg till nytt språk till webbplats</a> |
+    <a asp-controller="Languages" asp-action="Index">Språk</a>
+</p>
+<section class="accountDiv webDiv">
+    <h2>Alla webbplatser</h2>
+    @{
+        //Loop through websites in many to many tabel and save each unique one in a list
+        List<Website> websites = new List<Website>();
+        foreach (var websiteLanguage in Model)
+        {
+            if (!websites.Contains(websiteLanguage.website))
+            {
+                 websites.Add(websiteLanguage.website);
+            }
+        }
+        //Loop through each website in list and write out website title and connected languages
+        foreach (var website in websites)
+        {
+            <article>
+            <h3 class="alignLeft">@website.websiteTitle</h3>
+                @foreach(var websiteLanguage in website.websiteLanguages)
+                {
+                    <p>@websiteLanguage.language.languageTitle</p>
+
+                    //Link to endpoint for delete
+                    <a href="WebsiteLanguages/Delete?websiteId=@websiteLanguage.websiteId&languageId=@websiteLanguage.languageId">Ta bort</a>
+                }
+            </article>
+            
+        }
+        
+    }
+</section>

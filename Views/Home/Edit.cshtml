@@ -1,0 +1,140 @@
+@{
+    ViewData["Title"] = "Redigera innehåll";
+}
+
+<div>
+    <h1>Redigera innehåll</h1>
+</div>
+
+<section>
+    <h2>Portfolio</h2>
+    <div class="flexContainer"> 
+        <ul>
+            <li>
+                <button class="foldingBtn"> 
+                    <p>Hantera existerande webbplatser</p>    
+                    <i class="fas fa-sort-down mypageArrow"></i>
+                </button> 
+                <div class="foldingText"> 
+                        <ul>
+                            @* Loop through websites in viewbag and write out*@
+                        @foreach (var website in ViewBag.Websites){
+                            <li>
+                                <h3>@website.websiteTitle</h3>
+                                <p><span class="description">Beskrivning: </span>@website.websiteDescription</p>
+                                <p><a href="@website.websiteUrl">Länk till webbplats</a></p>
+                                 <p><span class="description">Språk: </span>
+                                      @{string languageString = "";}
+
+                                       @* Loop through languages in viewbag and write out*@
+                                    @foreach (var language in ViewBag.WebsiteLanguages)
+                                    {
+                                        @* Check if Language is first in order, if not add a comma before in string*@
+                                        if(language.websiteId == website.websiteId){
+                                            if(languageString== "")
+                                            {
+                                                languageString = language.language.languageTitle;
+                                            }
+                                            else
+                                            {
+                                                languageString = languageString + ", " + language.language.languageTitle;
+                                            }
+                                        }
+                                    }
+                                    @{languageString = languageString + ".";}
+                                    @languageString
+                                </p>
+
+                                <p><span class="description">Ramverk: </span>
+
+                                    @{string frameworkString = "";}
+
+                                     @* Loop through frameworks in viewbag and write out*@
+                                    @foreach (var framework in ViewBag.WebsiteFrameworks)
+                                    {
+                                         @* Check if Framework is first in order, if not add a comma before in string*@
+                                        if(framework.websiteId == website.websiteId){
+                                            if(frameworkString== "")
+                                            {
+                                                frameworkString = framework.framework.frameworkTitle;
+                                            }
+                                            else
+                                            {
+                                                frameworkString = frameworkString + ", " + framework.framework.frameworkTitle;
+                                            }
+                                        }
+                                    }
+                                    @{frameworkString = frameworkString + ".";}
+                                    @frameworkString
+                                </p>
+                                
+                                <div><a asp-area="" asp-controller="Websites" asp-action="Edit" asp-route-id="@website.websiteId">Redigera webbplats</a></div>
+                                <div><a asp-area="" asp-controller="Websites" asp-action="Delete" asp-route-id="@website.websiteId">Ta bort webbplats</a></div>
+                            </li>
+                        }
+                        </ul>
+                </div>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="WebsiteFrameworks" asp-action="Index">Hantera Ramverk</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="WebsiteLanguages" asp-action="Index">Hantera Språk</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Websites" asp-action="Create">Lägg till ny webbplats</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section id="eduContainer">
+    <h2>Utbildning</h2>
+    <div class="flexContainer"> 
+        <ul>
+            <li>
+                <button class="foldingBtn"> 
+                    <p>Hantera existerande utbildningar</p>    
+                    <i class="fas fa-sort-down mypageArrow"></i>
+                </button> 
+                <div class="foldingText"> 
+                        <ul>
+                             @* Loop through programs in viewbag and write out*@
+                        @foreach (var program in ViewBag.Programs){
+                            <li>
+                                <h3>@program.programsTitle</h3>
+                                @if(program.programsDegree != "" && program.programsDegree != null)
+                                {
+                                    <p><spans class="description">Examenstyp: </spans>@program.programsDegree</p>
+                                }
+                                <p><span class="description">Universitet/Högskola: </span>@program.programsSchool</p>
+                                <p><span class="description">Startdatum: </span>@program.programsStartdate.ToString("dd MMMM yyyy")</p>
+                                <p><span class="description">Slutdatum: </span>@program.programsEnddate.ToString("dd MMMM yyyy")</p>
+                                <h4>Kurser</h4>
+                                <ul class="list">
+                                     @* Loop through courses in viewbag and write out if id of program matches id of parent element*@
+                                @foreach (var course in ViewBag.Courses)
+                                    {
+                                        if(course.programsId == program.programsId){
+                                            <li>@course.courseTitle</li>
+                                        }
+                                    }
+                                </ul>
+                                <div><a asp-area="" asp-controller="Programs" asp-action="Edit" asp-route-id="@program.programsId">Redigera utbildning</a></div>
+                                <div><a asp-area="" asp-controller="Programs" asp-action="Delete" asp-route-id="@program.programsId">Ta bort utbildning</a></div>
+                            </li>
+                        }
+                        </ul>
+                </div>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Courses" asp-action="Index">Hantera kurser</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Programs" asp-action="Create">Lägg till ny utbildning</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Courses" asp-action="Create">Lägg till ny kurs</a>
+            </li>
+        </ul>
+    </div>
+</section>

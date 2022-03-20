@@ -1,0 +1,46 @@
+﻿@model netProject.Models.Course
+
+@{
+    ViewData["Title"] = "Lägg till ny kurs";
+}
+
+<h1>Lägg till ny kurs</h1>
+
+<hr />
+<div>
+    <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <div>
+                <label asp-for="courseTitle"></label>
+                <input asp-for="courseTitle" />
+                <span asp-validation-for="courseTitle" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="courseStartdate"></label>
+                <input asp-for="courseStartdate" />
+                <span asp-validation-for="courseStartdate" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="courseEnddate"></label>
+                <input asp-for="courseEnddate"/>
+                <span asp-validation-for="courseEnddate" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="programsId"></label>
+                <select asp-for="programsId" asp-items="ViewBag.programsId"></select>
+            </div>
+            <div>
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="accountDiv">
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

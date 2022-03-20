@@ -1,0 +1,41 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Hantera Email";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div>
+    <div>
+        <form id="email-form" method="post">
+            <div asp-validation-summary="All" class="errorMsg"></div>
+            @if (Model.IsEmailConfirmed)
+            {
+                <div>
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email"disabled />
+                </div>
+            }
+            else
+            {
+                <div>
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email"disabled />
+                    <button id="email-verification" class="formBtn" type="submit" asp-page-handler="SendVerificationEmail">Send verification email</button>
+                </div>
+            }
+            <div>
+                <label asp-for="Input.NewEmail" ></label>
+                <input asp-for="Input.NewEmail"autocomplete="email" aria-required="true" />
+                <span asp-validation-for="Input.NewEmail" class="errorMsg"></span>
+            </div>
+            <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="formBtn">Change email</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

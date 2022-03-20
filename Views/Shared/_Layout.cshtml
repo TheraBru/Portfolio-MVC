@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="shortcut icon" type="image/icon" href="~/images/icons/favicon.ico"/>
+    <script src="https://kit.fontawesome.com/a4e1bec0fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header id="pagesHeader" class="fit-content">
+            <div>
+                <a  asp-area="" asp-controller="Home" asp-action="Index">
+                    <p>Therése Bruzell</p>
+                    <p>Webbutvecklare och Grafisk Designer</p>
+                </a>
+            </div>
+            <nav>
+                <ul >
+                    <li >
+                        <a asp-area="" asp-controller="Home" asp-action="About">Om mig</a>
+                    </li>
+                    <li >
+                        <a asp-area="" asp-controller="Home" asp-action="Portfolio">Portfolio</a>
+                    </li>
+                    <li >
+                        <a asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a>
+                    </li>
+                    @if (SignInManager.IsSignedIn(User)){
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Edit">Hantera innehåll</a>
+                        </li>
+                        <li>
+                           <a asp-area="Identity" asp-page="/Account/Manage/Index">Mitt konto</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer>
+            <div>
+                <partial name="_LoginPartial" />
+            </div>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

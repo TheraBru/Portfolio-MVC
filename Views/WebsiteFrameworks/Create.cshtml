@@ -1,0 +1,34 @@
+﻿@model netProject.Models.WebsiteFramework
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div>
+    <div >
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <div class="form-group">
+                <label asp-for="frameworkId"></label>
+                <select asp-for="frameworkId" asp-items="ViewBag.frameworkId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="websiteId"></label>
+                <select asp-for="websiteId"asp-items="ViewBag.websiteId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lägg till" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="accountDiv">
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

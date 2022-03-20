@@ -1,0 +1,48 @@
+﻿@model netProject.Models.Website
+
+
+@{
+    ViewData["Title"] = "Lägg till ny webbplats";
+}
+
+<h1>Lägg till ny webbplats</h1>
+
+
+<div >
+    <div>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+            <div>
+                <label asp-for="websiteTitle" ></label>
+                <input asp-for="websiteTitle" />
+                <span asp-validation-for="websiteTitle" class="errorMsg"></span>
+            </div>
+            <div >
+                <label asp-for="websiteDescription"></label>
+                <textarea asp-for="websiteDescription" class="smallTxt"></textarea>
+                <span asp-validation-for="websiteDescription" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="websiteUrl"></label>
+                <input asp-for="websiteUrl"/>
+                <span asp-validation-for="websiteUrl" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="pictureFile"></label>
+                <input asp-for="pictureFile"/>
+                <span asp-validation-for="pictureFile" class="errorMsg"></span>
+            </div>
+            <div>
+                <input type="submit" value="Lägg till webbplats"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="accountDiv">
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

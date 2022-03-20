@@ -1,0 +1,33 @@
+﻿@page
+@model DeletePersonalDataModel
+@{
+    ViewData["Title"] = "Ta bort personlig data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<div  role="alert">
+    <p class="errorMsg">
+        <strong>Vid borttagning av din personliga information kommer även ditt konto försvinna, utan möjlighet för återställning.</strong>
+    </p>
+</div>
+
+<div>
+    <form id="delete-user" method="post">
+        <div asp-validation-summary="ModelOnly" class="errorMsg"></div>
+        @if (Model.RequirePassword)
+        {
+            <div>
+                <label asp-for="Input.Password" ></label>
+                <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
+                <span asp-validation-for="Input.Password" class="errorMsg"></span>
+            </div>
+        }
+        <input type="submit" value="Ta bort all data och mitt konto">
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

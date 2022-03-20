@@ -1,0 +1,29 @@
+﻿@model IEnumerable<netProject.Models.Programs>
+
+@{
+    ViewData["Title"] = "Utbildningar";
+}
+
+<<h1>Utbildningar</h1>
+
+<p>
+    <a asp-action="Create">Lägg till ny utbildning</a>
+</p>
+
+<section class="accountDiv">
+    <h2>Alla tillagda utbildningar</h2>
+    @foreach (var program in Model){
+        <article>
+            <h3 class="alignLeft">@program.programsTitle</h3>
+            <p><span class="description">Skola: </span>@program.programsSchool</p>
+            <p><span class="description">Examenstyp: </span>@program.programsDegree</p>
+            <p><span class="description">Startdatum: </span>@program.programsStartdate.ToString("dd MMMM yyyy")</p>
+            <p><span class="description">Slutdatum: </span>@program.programsEnddate.ToString("dd MMMM yyyy")</p>
+            <a asp-action="Edit" asp-route-id="@program.programsId">Redigera</a> |
+            <a asp-action="Delete" asp-route-id="@program.programsId">Ta bort</a>
+        </article>
+    }
+</section>
+
+
+

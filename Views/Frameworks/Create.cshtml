@@ -1,0 +1,36 @@
+﻿@model netProject.Models.Framework
+
+@{
+    ViewData["Title"] = "Lägg till ramverk";
+}
+
+<h1>Lägg till ramverk</h1>
+
+<hr />
+<div>
+    <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="frameworkTitle"></label>
+                <input asp-for="frameworkTitle" />
+                <span asp-validation-for="frameworkTitle" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="languageId"></label>
+                <select asp-for="languageId" asp-items="ViewBag.languageId"></select>
+            </div>
+            <div >
+                <input type="submit" value="Create"  />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="accountDiv">
+    <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

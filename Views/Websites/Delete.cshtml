@@ -1,0 +1,43 @@
+﻿@model netProject.Models.Website
+
+@{
+    ViewData["Title"] = "Ta bort webbsida";
+}
+
+<h1>Ta bort webbsida</h1>
+
+<section class="accountDiv webDiv">
+    <h2>Är du säker på att du vill ta bort @Model.websiteTitle?</h2>
+ <p><span class="description">Beskrivning: </span>@Model.websiteDescription</p>
+            @if(Model.websiteLanguages != null)
+            {
+                <div class="block">
+                    <ul title="Språk" class="list">
+                    @foreach(var websiteLanguage in Model.websiteLanguages)
+                    {
+                        <li>@websiteLanguage.language.languageTitle</li>
+                    }
+                    </ul>
+                </div>
+            }
+            @if (Model.websiteFrameworks != null)
+            {
+                <div class="block">
+                    <ul title="Ramverk" class="list">
+                    @foreach(var websiteFramework in Model.websiteFrameworks)
+                    {
+                        <li>@websiteFramework.framework.frameworkTitle</li>
+                    }
+                    </ul>
+                </div>
+            }
+            
+            <img src="~/images/@Model.websitePicture" alt="Skärmdump från @Model.websiteTitle">
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="websiteId" />
+        <input type="submit" value="Ta bort webbsida"/> 
+        <a asp-action="Index">Tillbaka till översikt</a>
+    </form>
+</section>
+

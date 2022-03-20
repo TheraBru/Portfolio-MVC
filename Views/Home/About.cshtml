@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+ <h1>Om mig</h1>
+<div id="aboutDiv">
+    <article id="aboutSection" class="flexBox" >
+        <div id="pictureDiv">
+            <img src="~/images/mePic.png" alt="" id="me">
+        </div>
+        <div id="introduction">
+            <h2>Therese Bruzell</h2>
+            <p>Jag bor i Åkersberga med min sambo och våra två marsvin. Här kommer lite mer text som det står saker i. 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed illum provident eum ad voluptatum 
+                quam ipsa unde. Consectetur rerum veritatis blanditiis exercitationem qui quos tempora, pariatur aspernatur aliquid possimus?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptates veniam at dolorum sapiente. Quod, repellat ducimus 
+                distinctio quis, facere assumenda nostrum error perferendis optio ullam, quisquam ea ab in.</p>
+        </div>
+    </article>
+</div>
+
+<section>
+    <h2>Mina färdigheter</h2>
+    <article>
+        <h3>Språk</h3>
+        <div class="flexBox knowledgeDiv">
+           @* Loop through languages in viewbag and write out*@
+            @foreach (var language in ViewBag.Languages){
+                <p>@language.languageTitle</p>      
+            }
+        </div>
+    </article>
+    <article>
+        <h3>Ramverk</h3>
+        <div class="flexBox knowledgeDiv">
+            @* Loop through frameworks in viewbag and write out*@
+            @foreach (var framework in ViewBag.Frameworks){
+                <p>@framework.frameworkTitle</p>      
+            }
+        </div>
+     </article>
+</section>
+
+<section id="hobbyBox">
+    <h2>Min utbildning</h2>
+    <div class="flexBox">
+        @* Loop through programs in viewbag and write out*@
+    @foreach (var program in ViewBag.Programs){
+        <article>
+            <h3>@program.programsTitle</h3>
+            <p>@program.programsSchool</p>
+            <p>@program.programsDegree</p>
+            <p>@program.programsStartdate.ToString("dd MMMM yyyy") - @program.programsEnddate.ToString("dd MMMM yyyy") </p>
+           <a asp-area="" asp-controller="Home" asp-action="Program" asp-route-id="@program.programsId" class="blueBgLinks">Se kurser</a>
+        </article>
+            
+    }
+    </div>
+</section>

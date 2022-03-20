@@ -1,0 +1,51 @@
+﻿@model netProject.Models.Programs
+
+@{
+    ViewData["Title"] = "Lägg till ny utbildning";
+}
+
+<h1>Lägg till ny utbildning</h1>
+
+<section class="accountDiv">
+    <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="programsTitle"></label>
+                <input asp-for="programsTitle" />
+                <span asp-validation-for="programsTitle" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="programsSchool"></label>
+                <input asp-for="programsSchool" />
+                <span asp-validation-for="programsSchool" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="programsDegree"></label>
+                <input asp-for="programsDegree" />
+                <span asp-validation-for="programsDegree" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="programsStartdate"></label>
+                <input asp-for="programsStartdate" />
+                <span asp-validation-for="programsStartdate" class="errorMsg"></span>
+            </div>
+            <div>
+                <label asp-for="programsEnddate"></label>
+                <input asp-for="programsEnddate"/>
+                <span asp-validation-for="programsEnddate" class="errorMsg"></span>
+            </div>
+            <div>
+                <input type="submit" value="Lägg till utbildning"/>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div>
+        <a asp-action="Index">Tillbaka till översikt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

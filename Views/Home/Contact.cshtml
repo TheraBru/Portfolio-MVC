@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+@model netProject.Models.Mail
+
+<div class="text-center">
+    <h1 class="display-4">Kontakt</h1>
+</div>
+<section>
+    <h2>Kontakta mig gärna genom formuläret!</h2>
+    <article>
+        <form asp-action="Contact">
+            <p class="required">*Obligatoriskt</p>
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="Name"></label><p class="required"> *</p>
+                <input asp-for="Name" />
+                <p class="errorMsg"><span asp-validation-for="Name"></span></p>
+
+                <label asp-for="Email"></label><p class="required"> *</p>
+                <input asp-for="Email" id="email"/>
+                <p class="errorMsg"><span asp-validation-for="Email"></span></p>
+
+                <label asp-for="Company"></label>
+                <input asp-for="Company" />
+                <br /><br />
+                <label asp-for="Subject"></label><p class="required"> *</p>
+                <input asp-for="Subject" id="subject"/>
+                <p class="errorMsg"><span asp-validation-for="Subject"></span></p>
+
+                <label asp-for="Message"></label><p class="required"> *</p>
+                <textarea asp-for="Message"></textarea>
+                <p class="errorMsg"><span asp-validation-for="Message"></span></p>
+           
+                <input type="submit" value="Skicka" />
+            </div>
+        </form>  
+    </article>
+</section>
+
+@if(ViewData["Message"]!= ""){
+
+    <div>
+        <p>@ViewData["Message"]</p>
+    </div>
+}
